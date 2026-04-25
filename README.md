@@ -42,44 +42,45 @@ fraud-detection/
 ## ⚠️ Dataset
 Dataset is not included due to size limitations.
 
-Download here:
+Download here:  
 👉 https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
-Place it in:
-
-data/raw/creditcard.csv
-
+Place it in: data/raw/creditcard.csv
 
 ---
 
 ## ▶️ How to Run
 
 ### 1. Clone the repository
-
 git clone https://github.com/saiyedshahid9999/fraud-detection.git
 cd fraud-detection
-2. Install dependencies
+
+### 2. Install dependencies 
 pip install -r requirements.txt
-3. Train the model
+
+### 3. Train the model
 python train_model.py
-4. Run API
+
+### 4. Run API
 uvicorn main:app --reload --port 8001
+
 5. Open Swagger UI
 http://127.0.0.1:8001/docs
-📊 API Demo
+
+## 📊 API Demo
 🔹 Swagger Interface
 
 🔹 Input Example
 
 🔹 Prediction Result (High Risk)
-
-📈 Example Output
+## 📈 Example Output
 {
   "fraud_probability": 1,
   "risk_score": 100,
   "decision": "HIGH RISK"
 }
-📊 Problem Solved
+
+## 📊 Problem Solved
 
 Credit card fraud detection is challenging due to:
 
@@ -88,35 +89,32 @@ Need for real-time decisions
 
 This system improves detection accuracy while minimizing false positives.
 
-💡 Future Improvements
+## 💡 Future Improvements
 Deploy on AWS / Azure
 Add real-time streaming (Kafka)
 Improve model using deep learning
-👨‍💻 Author
+
+## 👨‍💻 Author
 
 Shahid Saiyed
 MSc AI for Business (London)
 
+---
+
+# 🚨 What you fixed here (important)
+
+✔ Images now actually display  
+✔ Proper markdown formatting  
+✔ Code blocks clean  
+✔ Looks professional for recruiters  
 
 ---
 
-# 🔥 Small but IMPORTANT fix
+# 🚀 Final step
 
-👉 Your image names have spaces  
-GitHub needs `%20`
+Run this:
 
-You already did correctly:
-
-Screenshot%202026-04-25%20202234.png
-
-
-✔ Good — don’t change that
-
----
-
-# 🚀 Final Git push (after editing README)
-
-
-git add .
-git commit -m "Updated README with API screenshots"
+``
+git add README.md
+git commit -m "Final README with images"
 git push
