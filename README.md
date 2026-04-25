@@ -122,10 +122,12 @@ git push
 ## 📊 API Demo
 
 ### 🔹 Swagger Interface
+![High Risk Output](Screenshot%202026-04-25%20202326.png)
+
+### 🔹 Prediction Result (High Risk)
 ![Swagger UI](Screenshot%202026-04-25%20202234.png)
 
 ### 🔹 Input Example
 ![Input Example](Screenshot%202026-04-25%20202303.png)
 
-### 🔹 Prediction Result (High Risk)
-![High Risk Output](Screenshot%202026-04-25%20202326.png)
+
