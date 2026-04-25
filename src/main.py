@@ -3,13 +3,11 @@ from pydantic import BaseModel
 import joblib
 import numpy as np
 
-# Load model & scaler
 model = joblib.load("xgb_fraud_model.pkl")
 scaler = joblib.load("scaler.pkl")
 
 app = FastAPI(title="Fraud Detection API")
 
-# Input schema
 class Transaction(BaseModel):
     Time: float
     V1: float
@@ -44,11 +42,20 @@ class Transaction(BaseModel):
 
 @app.post("/predict")
 def predict_fraud(data: Transaction):
-    input_data = np.array([[value for value in data.dict().values()]])
-    input_scaled = scaler.transform(input_data)
+    input_data = np.array([[
+        data.Time,
+        data.V1, data.V2, data.V3, data.V4, data.V5, data.V6,
+        data.V7, data.V8, data.V9, data.V10, data.V11, data.V12,
+        data.V13, data.V14, data.V15, data.V16, data.V17, data.V18,
+        data.V19, data.V20, data.V21, data.V22, data.V23, data.V24,
+        data.V25, data.V26, data.V27, data.V28,
+        data.Amount
+    ]], dtype=float)
 
-    prob = model.predict_proba(input_scaled)[0][1]
-    risk_score = round(prob * 100, 2)
+    input_scaled = scaler.transform(input_data)
+    prob = float(model.predict_proba(input_scaled)[0][1])
+
+    risk_score = float(round(prob * 100, 2))
 
     if risk_score >= 80:
         decision = "HIGH RISK"
@@ -58,7 +65,7 @@ def predict_fraud(data: Transaction):
         decision = "LOW RISK"
 
     return {
-        "fraud_probability": round(prob, 4),
+        "fraud_probability": float(round(prob, 4)),
         "risk_score": risk_score,
         "decision": decision
     }
