@@ -23,6 +23,7 @@
   <ItemGroup>
     <Compile Include="fraud_detection.py" />
     <Compile Include="src\main.py" />
+    <Compile Include="train_model.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\" />
@@ -31,6 +32,7 @@
     <Folder Include="notebooks\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="data\raw\creditcard.csv" />
     <Content Include="src\scaler.pkl" />
     <Content Include="src\xgb_fraud_model.pkl" />
