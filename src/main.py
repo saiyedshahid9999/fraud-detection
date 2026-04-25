@@ -42,7 +42,7 @@ class Transaction(BaseModel):
 
 @app.post("/predict")
 def predict_fraud(data: Transaction):
-    input_data = np.array([[
+    input_data = np.array([[ 
         data.Time,
         data.V1, data.V2, data.V3, data.V4, data.V5, data.V6,
         data.V7, data.V8, data.V9, data.V10, data.V11, data.V12,
