@@ -3,73 +3,120 @@
 ## 📌 Overview
 This project is an end-to-end Machine Learning system for detecting fraudulent credit card transactions using real-world datasets.
 
-It focuses on identifying rare fraud cases in highly imbalanced data using advanced ML techniques and deploying a real-time prediction system.
+It focuses on identifying rare fraud cases in highly imbalanced data and provides a real-time prediction API using FastAPI.
 
 ---
 
 ## 🚀 Features
-- Fraud detection using ML models (XGBoost, PyTorch)
-- Handles highly imbalanced dataset (0.17% fraud)
+- Fraud detection using XGBoost model
+- Handles highly imbalanced dataset (~0.17% fraud cases)
 - Real-time prediction API using FastAPI
-- Model explainability using SHAP
-- Data preprocessing and feature engineering
-- Scalable backend structure
+- Scalable and modular structure
+- Risk scoring system (Low / Medium / High)
 
 ---
 
 ## 🛠️ Tech Stack
 - Python
 - FastAPI
-- PyTorch / XGBoost
+- XGBoost
 - Pandas, NumPy, Scikit-learn
-- SHAP (Explainability)
-- REST APIs
+- REST API
 
 ---
 
 ## 📂 Project Structure
 fraud-detection/
 │
-├── src/ # Core ML logic
-├── notebooks/ # Experiments and analysis
-├── data/ # Dataset (not uploaded)
-├── fraud_detection.py # Main script
+├── main.py # FastAPI application
+├── train_model.py # Model training script
+├── xgb_fraud_model.pkl # Trained model
+├── scaler.pkl # Scaler
+├── notebooks/ # Experiments
+├── src/ # Core logic
+├── README.md
+
 
 ---
 
 ## ⚠️ Dataset
-The dataset is not included due to size limitations.
+Dataset is not included due to size limitations.
 
-You can download it from:
+Download here:
 👉 https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+
+Place it in:
+
+data/raw/creditcard.csv
+
 
 ---
 
 ## ▶️ How to Run
 
-1. Clone the repo: git clone https://github.com/saiyedshahid9999/fraud-detection.git
-2. Install dependencies: pip install -r requirements.txt
-3. Run: python fraud_detection.py
+### 1. Clone the repository
 
+git clone https://github.com/saiyedshahid9999/fraud-detection.git
+cd fraud-detection
+2. Install dependencies
+pip install -r requirements.txt
+3. Train the model
+python train_model.py
+4. Run API
+uvicorn main:app --reload --port 8001
+5. Open Swagger UI
+http://127.0.0.1:8001/docs
+📊 API Demo
+🔹 Swagger Interface
 
----
+🔹 Input Example
 
-## 📊 Problem Solved
+🔹 Prediction Result (High Risk)
+
+📈 Example Output
+{
+  "fraud_probability": 1,
+  "risk_score": 100,
+  "decision": "HIGH RISK"
+}
+📊 Problem Solved
+
 Credit card fraud detection is challenging due to:
-- Extreme class imbalance
-- Real-time decision requirements
 
-This system improves fraud detection accuracy while minimizing false positives.
+Extreme class imbalance
+Need for real-time decisions
 
----
+This system improves detection accuracy while minimizing false positives.
 
-## 💡 Future Improvements
-- Deploy on cloud (Azure / AWS)
-- Add real-time streaming (Kafka)
-- Improve model accuracy with deep learning
+💡 Future Improvements
+Deploy on AWS / Azure
+Add real-time streaming (Kafka)
+Improve model using deep learning
+👨‍💻 Author
 
----
-
-## 👨‍💻 Author
-Shahid Saiyed  
+Shahid Saiyed
 MSc AI for Business (London)
+
+
+---
+
+# 🔥 Small but IMPORTANT fix
+
+👉 Your image names have spaces  
+GitHub needs `%20`
+
+You already did correctly:
+
+Screenshot%202026-04-25%20202234.png
+
+
+✔ Good — don’t change that
+
+---
+
+# 🚀 Final Git push (after editing README)
+
+
+git add .
+git commit -m "Updated README with API screenshots"
+git push
